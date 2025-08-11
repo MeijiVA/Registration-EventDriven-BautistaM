@@ -125,7 +125,7 @@
             this.tBox_Address.MaximumSize = new System.Drawing.Size(430, 130);
             this.tBox_Address.MinimumSize = new System.Drawing.Size(4, 130);
             this.tBox_Address.Name = "tBox_Address";
-            this.tBox_Address.Size = new System.Drawing.Size(402, 20);
+            this.tBox_Address.Size = new System.Drawing.Size(405, 130);
             this.tBox_Address.TabIndex = 8;
             // 
             // tBox_LName
