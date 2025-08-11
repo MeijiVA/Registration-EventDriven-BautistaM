@@ -20,12 +20,14 @@ namespace EventDriven2Wk
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            cBox_Program.Items.Add("test");
         }
 
         private void cBox_Program_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

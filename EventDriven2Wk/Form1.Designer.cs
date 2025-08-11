@@ -121,11 +121,11 @@
             // 
             // tBox_Address
             // 
-            this.tBox_Address.Location = new System.Drawing.Point(15, 150);
-            this.tBox_Address.MaximumSize = new System.Drawing.Size(0, 100);
-            this.tBox_Address.MinimumSize = new System.Drawing.Size(0, 130);
+            this.tBox_Address.Location = new System.Drawing.Point(12, 150);
+            this.tBox_Address.MaximumSize = new System.Drawing.Size(430, 130);
+            this.tBox_Address.MinimumSize = new System.Drawing.Size(4, 130);
             this.tBox_Address.Name = "tBox_Address";
-            this.tBox_Address.Size = new System.Drawing.Size(402, 130);
+            this.tBox_Address.Size = new System.Drawing.Size(402, 20);
             this.tBox_Address.TabIndex = 8;
             // 
             // tBox_LName
@@ -181,7 +181,7 @@
             // 
             // btn_Next
             // 
-            this.btn_Next.Location = new System.Drawing.Point(169, 289);
+            this.btn_Next.Location = new System.Drawing.Point(182, 289);
             this.btn_Next.Name = "btn_Next";
             this.btn_Next.Size = new System.Drawing.Size(75, 23);
             this.btn_Next.TabIndex = 18;
@@ -192,6 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(431, 324);
             this.Controls.Add(this.btn_Next);
             this.Controls.Add(this.cBox_Program);
@@ -211,6 +212,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
