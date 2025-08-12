@@ -94,8 +94,19 @@ namespace EventDriven2Wk
             StudentInfoClass.ContactNo = (long)Convert.ToDouble(tBox_ContNo.Text);
             StudentInfoClass.StudentNo = (long)Convert.ToDouble(tBox_StudNum.Text);
             this.Hide();
-            FrmConfirm form = new FrmConfirm();
-            form.Show();
+            FrmConfirm frm = new FrmConfirm();
+            frm.ShowDialog();
+            if(frm.ShowDialog().Equals(DialogResult.OK))
+            {
+                tBox_FName.Text = "";
+                tBox_LName.Text = "";
+                tBox_MName.Text = "";
+                tBox_Address.Text = "";
+                cBox_Program.Text = "";
+                tBox_Age.Text = "";
+                tBox_ContNo.Text = "";
+                tBox_StudNum.Text = "";
+            }
         }
     }
 }

@@ -15,6 +15,36 @@ namespace EventDriven2Wk
     {
 
         public StudentInfoClass.DelegateText DelProgram, DelLastName, DelFirstName, DelMiddleName, DelAddress;
+
+        private void btn_Confirm_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void FrmConfirm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void FrmConfirm_Load(object sender, EventArgs e)
+        {
+            lbl_Program.Text = DelProgram(StudentInfoClass.Program);
+            lbl_LName.Text = DelLastName(StudentInfoClass.LastName);
+            lbl_FName.Text = DelFirstName(StudentInfoClass.FirstName);
+            lbl_MName.Text = DelMiddleName(StudentInfoClass.MiddleName);
+            lbl_Address.Text = DelAddress(StudentInfoClass.Address);
+            lbl_Age.Text = Convert.ToString(DelNumAge(StudentInfoClass.Age));
+            lbl_ContNo.Text = Convert.ToString(DelNumContactNo(StudentInfoClass.ContactNo));
+            lbl_StudentNo.Text = Convert.ToString(DelStudNo(StudentInfoClass.StudentNo));
+        }
+
         public StudentInfoClass.DelegateNumber DelNumAge, DelNumContactNo, DelStudNo;
         public FrmConfirm()
         {
@@ -27,7 +57,6 @@ namespace EventDriven2Wk
             DelNumAge = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetAge);
             DelNumContactNo = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetContactNo);
             DelStudNo = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetStudentNo);
-
 
         }
     }
