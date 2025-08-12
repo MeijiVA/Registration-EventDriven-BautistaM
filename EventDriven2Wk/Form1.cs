@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventDriven2Wk.Code;
 
 namespace EventDriven2Wk
 {
@@ -22,12 +23,5 @@ namespace EventDriven2Wk
         {
             cBox_Program.Items.Add("test");
         }
-
-        private void cBox_Program_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }
