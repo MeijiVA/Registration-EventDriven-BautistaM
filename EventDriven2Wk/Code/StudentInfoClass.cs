@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace EventDriven2Wk.Code
 {
-    internal class StudentInfoClass
+    public class StudentInfoClass
     {
         // static var
-        static String FirstName = " ";
-        static String LastName = " ";
-        static String MiddleName = " ";
-        static String Address = " ";
-        static String Program = " ";
-        long Age = 0;
-        long ContactNo = 0;
-        long StudentNo = 0;
+        public static String FirstName = " ";
+        public static String LastName = " ";
+        public static String MiddleName = " ";
+        public static String Address = " ";
+        public static String Program = " ";
+        public static long Age = 0;
+        public static long ContactNo = 0;
+        public static long StudentNo = 0;
 
         //delegates
 
@@ -24,35 +24,35 @@ namespace EventDriven2Wk.Code
         public delegate string DelegateText(string txt);
 
        //methods
-       static String GetFirstName(string FirstName)
+       public static String GetFirstName(string FirstName)
         {
             return FirstName;
         }
-        static String GetLastName(string LastName)
+        public static String GetLastName(string LastName)
         {
             return LastName;
         }
-        static String GetMiddleName(string MiddleName)
+        public static String GetMiddleName(string MiddleName)
         {
             return FirstName;
         }
-        static String GetAddress(string Address)
+        public static String GetAddress(string Address)
         {
             return Address;
         }
-        static String GetProgram(string Program)
+        public static String GetProgram(string Program)
         {
             return Program;
         }
-        static long GetAge(long Age)
+        public static long GetAge(long Age)
         {
             return Age;
         }
-        static long GetContactNo(long ContactNo)
+        public static long GetContactNo(long ContactNo)
         {
             return ContactNo;
         }
-        static long GetStudentNo(long StudentNo)
+        public static long GetStudentNo(long StudentNo)
         {
             return StudentNo;
         }

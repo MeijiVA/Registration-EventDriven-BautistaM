@@ -59,5 +59,15 @@ namespace EventDriven2Wk.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap simple_flat_blue_curl_light_burst_effect_background_vector {
+            get {
+                object obj = ResourceManager.GetObject("simple-flat-blue-curl-light-burst-effect-background-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
