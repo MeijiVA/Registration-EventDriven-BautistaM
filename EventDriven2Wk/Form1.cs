@@ -44,6 +44,8 @@ namespace EventDriven2Wk
             cBox_Program.Items.Add("Bachelor in Science of Information Technology");
             cBox_Program.Items.Add("Bachelor in Science of Computer Science");
             cBox_Program.Items.Add("Bachelor in Science of Business Administration");
+            tBox_Address.Size = new System.Drawing.Size(405, 130);
+            tBox_Address.AutoSize = false;
         }
 
         private void btn_Close_Click(object sender, EventArgs e)
@@ -94,6 +96,7 @@ namespace EventDriven2Wk
             StudentInfoClass.ContactNo = (long)Convert.ToDouble(tBox_ContNo.Text);
             StudentInfoClass.StudentNo = (long)Convert.ToDouble(tBox_StudNum.Text);
             FrmConfirm frm = new FrmConfirm();
+            this.Hide();
             if(frm.ShowDialog().Equals(DialogResult.OK))
             {
                 tBox_FName.Text = "";
@@ -104,7 +107,13 @@ namespace EventDriven2Wk
                 tBox_Age.Text = "";
                 tBox_ContNo.Text = "";
                 tBox_StudNum.Text = "";
+                this.Show();
             }
+        }
+
+        private void tBox_Address_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -137,6 +137,7 @@
             this.tBox_Address.Name = "tBox_Address";
             this.tBox_Address.Size = new System.Drawing.Size(405, 130);
             this.tBox_Address.TabIndex = 8;
+            this.tBox_Address.TextChanged += new System.EventHandler(this.tBox_Address_TextChanged);
             // 
             // tBox_LName
             // 
@@ -188,10 +189,11 @@
             // 
             // cBox_Program
             // 
+            this.cBox_Program.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBox_Program.FormattingEnabled = true;
             this.cBox_Program.Location = new System.Drawing.Point(148, 77);
             this.cBox_Program.Name = "cBox_Program";
-            this.cBox_Program.Size = new System.Drawing.Size(184, 21);
+            this.cBox_Program.Size = new System.Drawing.Size(266, 21);
             this.cBox_Program.TabIndex = 17;
             // 
             // btn_Next
