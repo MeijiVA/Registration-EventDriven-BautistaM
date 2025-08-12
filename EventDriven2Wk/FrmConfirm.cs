@@ -15,22 +15,16 @@ namespace EventDriven2Wk
     {
 
         public StudentInfoClass.DelegateText DelProgram, DelLastName, DelFirstName, DelMiddleName, DelAddress;
-
-        private void btn_Confirm_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
+        public StudentInfoClass.DelegateNumber DelNumAge, DelNumContactNo, DelStudNo;
         private void FrmConfirm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
 
-
-        private void btn_Close_Click(object sender, EventArgs e)
+        private void btn_Confirm_Click_1(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void FrmConfirm_Load(object sender, EventArgs e)
@@ -45,7 +39,6 @@ namespace EventDriven2Wk
             lbl_StudentNo.Text = Convert.ToString(DelStudNo(StudentInfoClass.StudentNo));
         }
 
-        public StudentInfoClass.DelegateNumber DelNumAge, DelNumContactNo, DelStudNo;
         public FrmConfirm()
         {
             InitializeComponent();

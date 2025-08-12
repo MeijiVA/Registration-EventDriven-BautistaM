@@ -93,9 +93,7 @@ namespace EventDriven2Wk
             StudentInfoClass.Age = (long)Convert.ToDouble(tBox_Age.Text);
             StudentInfoClass.ContactNo = (long)Convert.ToDouble(tBox_ContNo.Text);
             StudentInfoClass.StudentNo = (long)Convert.ToDouble(tBox_StudNum.Text);
-            this.Hide();
             FrmConfirm frm = new FrmConfirm();
-            frm.ShowDialog();
             if(frm.ShowDialog().Equals(DialogResult.OK))
             {
                 tBox_FName.Text = "";

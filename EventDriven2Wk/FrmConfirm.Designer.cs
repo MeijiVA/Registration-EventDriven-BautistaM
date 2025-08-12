@@ -249,6 +249,7 @@
             this.btn_Confirm.TabIndex = 32;
             this.btn_Confirm.Text = "Submit";
             this.btn_Confirm.UseVisualStyleBackColor = true;
+            this.btn_Confirm.Click += new System.EventHandler(this.btn_Confirm_Click_1);
             // 
             // FrmConfirm
             // 
