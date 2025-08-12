@@ -34,7 +34,7 @@ namespace EventDriven2Wk.Code
         }
         public static String GetMiddleName(string MiddleName)
         {
-            return FirstName;
+            return MiddleName;
         }
         public static String GetAddress(string Address)
         {

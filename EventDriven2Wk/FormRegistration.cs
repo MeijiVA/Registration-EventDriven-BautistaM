@@ -13,7 +13,7 @@ using EventDriven2Wk.Code;
 
 namespace EventDriven2Wk
 {
-    public partial class Form1 : Form
+    public partial class FormRegistration : Form
     {
 
         public Point mouseLoc;
@@ -34,7 +34,7 @@ namespace EventDriven2Wk
         }
 
 
-        public Form1()
+        public FormRegistration()
         {
             InitializeComponent();
         }
