@@ -97,8 +97,16 @@ namespace EventDriven2Wk
                 "BS in Hospitality Management",
                 "BS in Tourism Management"
             };
+            string[] ListOfGender = new string[]
+            {
+                "Male","Female"
+            };
 
-            for(int i = 0; i < 6; i++)
+            for (int i = 0; i < 2; i++)
+            {
+                cbox_Gender.Items.Add(ListOfGender[i].ToString());
+            }
+            for (int i = 0; i < 6; i++)
             {
                 cBox_Program.Items.Add(ListOfProgram[i].ToString());
             }
