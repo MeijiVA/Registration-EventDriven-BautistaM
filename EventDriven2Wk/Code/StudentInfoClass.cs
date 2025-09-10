@@ -18,9 +18,6 @@ namespace EventDriven2Wk.Code
         public static String FirstName = " ";
         public static String LastName = " ";
         public static String MiddleName = " ";
-        public static String Address = " ";
-        public static String Program = " ";
-
         //SetVar
         public static String SetFullName;
         public static long SetStudentNo;
@@ -34,27 +31,16 @@ namespace EventDriven2Wk.Code
 
         public delegate long DelegateNumber(long number);
         public delegate string DelegateText(string txt);
+        public delegate string DelegateName(string txt,string txt2, string txt3);
 
-       //methods
-       public static String GetFirstName(string FirstName)
-        {
-            return FirstName;
-        }
-        public static String GetLastName(string LastName)
-        {
-            return LastName;
-        }
-        public static String GetMiddleName(string MiddleName)
-        {
-            return MiddleName;
-        }
-        public static String GetAddress(string Address)
-        {
-            return Address;
-        }
+        //methods
         public static String GetProgram(string Program)
         {
             return Program;
+        }
+        public static String GetGender(string Gender)
+        {
+            return Gender;
         }
         public static long GetAge(long Age)
         {
@@ -64,6 +50,10 @@ namespace EventDriven2Wk.Code
         public static long GetStudentNo(long StudentNo)
         {
             return StudentNo;
+        }
+        public static long GetContactNo(long ContactNo)
+        {
+            return ContactNo;
         }
 
         ///INSTANCE VARIABLES

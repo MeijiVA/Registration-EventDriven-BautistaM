@@ -14,8 +14,9 @@ namespace EventDriven2Wk
     public partial class FrmConfirm : Form
     {
 
-        public StudentInfoClass.DelegateText DelProgram, DelLastName, DelFirstName, DelMiddleName, DelAddress;
+        public StudentInfoClass.DelegateText DelProgram, DelAddress, DelGender;
         public StudentInfoClass.DelegateNumber DelNumAge, DelNumContactNo, DelStudNo;
+        public StudentInfoClass.DelegateName DelName;
         private void FrmConfirm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -29,27 +30,23 @@ namespace EventDriven2Wk
 
         private void FrmConfirm_Load(object sender, EventArgs e)
         {
-            lbl_Program.Text = DelProgram(StudentInfoClass.Program);
-            lbl_LName.Text = DelLastName(StudentInfoClass.LastName);
-            lbl_FName.Text = DelFirstName(StudentInfoClass.FirstName);
-            lbl_MName.Text = DelMiddleName(StudentInfoClass.MiddleName);
-            lbl_Address.Text = DelAddress(StudentInfoClass.Address);
+            lbl_Program.Text = DelProgram(StudentInfoClass.SetProgram);
+            lbl_LName.Text = DelName(StudentInfoClass.Name);
             lbl_Age.Text = Convert.ToString(DelNumAge(StudentInfoClass._Age));
             lbl_ContNo.Text = Convert.ToString(DelNumContactNo(StudentInfoClass._ContactNo));
             lbl_StudentNo.Text = Convert.ToString(DelStudNo(StudentInfoClass._StudentNo));
+            lbl_Gender.Text = DelStudNo(StudentInfoClass.SetGender.ToString());
         }
 
         public FrmConfirm()
         {
             InitializeComponent();
             DelProgram = new StudentInfoClass.DelegateText(StudentInfoClass.GetProgram);
-            DelLastName = new StudentInfoClass.DelegateText(StudentInfoClass.GetLastName);
-            DelFirstName = new StudentInfoClass.DelegateText(StudentInfoClass.GetFirstName);
-            DelMiddleName = new StudentInfoClass.DelegateText(StudentInfoClass.GetMiddleName);
-            DelAddress = new StudentInfoClass.DelegateText(StudentInfoClass.GetAddress);
+            DelName = new StudentInfoClass.DelegateName(StudentInfoClass.FullName);
             DelNumAge = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetAge);
             DelNumContactNo = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetContactNo);
             DelStudNo = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetStudentNo);
+            DelGender = new StudentInfoClass.DelegateText(StudentInfoClass.GetGender);
 
         }
     }
