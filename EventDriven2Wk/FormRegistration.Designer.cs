@@ -145,7 +145,6 @@
             this.tBox_LName.Name = "tBox_LName";
             this.tBox_LName.Size = new System.Drawing.Size(130, 20);
             this.tBox_LName.TabIndex = 11;
-            this.tBox_LName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_LName_KeyPress);
             // 
             // tBox_Age
             // 
@@ -153,7 +152,6 @@
             this.tBox_Age.Name = "tBox_Age";
             this.tBox_Age.Size = new System.Drawing.Size(130, 20);
             this.tBox_Age.TabIndex = 12;
-            this.tBox_Age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_Age_KeyPress);
             // 
             // tBox_ContNo
             // 
@@ -161,7 +159,6 @@
             this.tBox_ContNo.Name = "tBox_ContNo";
             this.tBox_ContNo.Size = new System.Drawing.Size(130, 20);
             this.tBox_ContNo.TabIndex = 13;
-            this.tBox_ContNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_ContNo_KeyPress);
             // 
             // tBox_FName
             // 
@@ -169,7 +166,6 @@
             this.tBox_FName.Name = "tBox_FName";
             this.tBox_FName.Size = new System.Drawing.Size(130, 20);
             this.tBox_FName.TabIndex = 14;
-            this.tBox_FName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_FName_KeyPress);
             // 
             // tBox_MName
             // 
@@ -177,7 +173,6 @@
             this.tBox_MName.Name = "tBox_MName";
             this.tBox_MName.Size = new System.Drawing.Size(130, 20);
             this.tBox_MName.TabIndex = 15;
-            this.tBox_MName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_MName_KeyPress);
             // 
             // tBox_StudNum
             // 
@@ -185,7 +180,6 @@
             this.tBox_StudNum.Name = "tBox_StudNum";
             this.tBox_StudNum.Size = new System.Drawing.Size(130, 20);
             this.tBox_StudNum.TabIndex = 16;
-            this.tBox_StudNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_StudNum_KeyPress);
             // 
             // cBox_Program
             // 
@@ -211,7 +205,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.SystemColors.Highlight;
-            this.label9.Font = new System.Drawing.Font("AdamGorry-Inline", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label9.Location = new System.Drawing.Point(-1, 0);
             this.label9.Name = "label9";

@@ -88,11 +88,22 @@ namespace EventDriven2Wk
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cBox_Program.Items.Add("Bachelor in Science of Information Technology");
-            cBox_Program.Items.Add("Bachelor in Science of Computer Science");
-            cBox_Program.Items.Add("Bachelor in Science of Business Administration");
-            tBox_Address.Size = new System.Drawing.Size(405, 130);
-            tBox_Address.AutoSize = false;
+            //STEP 8
+            string[] ListOfProgram = new string[]
+            {
+                "BS Information Technology",
+                "BS Computer Science",
+                "BS Information Systems",
+                "BS in Accountancy",
+                "BS in Hospitality Management",
+                "BS in Tourism Management"
+            };
+
+            for(int i = 0; i < 6; i++)
+            {
+                cBox_Program.Items.Add(ListOfProgram[i].ToString());
+            }
+
         }
 
         private void btn_Close_Click(object sender, EventArgs e)
