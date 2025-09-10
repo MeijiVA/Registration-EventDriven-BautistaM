@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EventDriven2Wk.Code
@@ -9,14 +10,15 @@ namespace EventDriven2Wk.Code
     public class StudentInfoClass
     {
         // static var
+        public long _StudentNo;
+        public long _ContactNo;
+        public string _FullName;
+        public int _Age;
         public static String FirstName = " ";
         public static String LastName = " ";
         public static String MiddleName = " ";
         public static String Address = " ";
         public static String Program = " ";
-        public static long Age = 0;
-        public static long ContactNo = 0;
-        public static long StudentNo = 0;
 
         //delegates
 
@@ -48,13 +50,53 @@ namespace EventDriven2Wk.Code
         {
             return Age;
         }
-        public static long GetContactNo(long ContactNo)
-        {
-            return ContactNo;
-        }
+
         public static long GetStudentNo(long StudentNo)
         {
             return StudentNo;
         }
+
+        ///INSTANCE VARIABLES
+
+        //REGEX MUTATORS
+        public long StudentNumber(string studNum)
+        {
+
+            _StudentNo = long.Parse(studNum);
+
+            return _StudentNo;
+        }
+
+        public long ContactNo(string Contact)
+        {
+            if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+            {
+                _ContactNo = long.Parse(Contact);
+            }
+
+            return _ContactNo;
+        }
+
+        public string FullName(string LastName, string FirstName, string MiddleInitial)
+        {
+            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+            {
+                _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
+            }
+
+            return _FullName;
+        }
+
+        public int Age(string age)
+        {
+            if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+            {
+                _Age = Int32.Parse(age);
+            }
+
+            return _Age;
+        }
+
+
     }
 }
