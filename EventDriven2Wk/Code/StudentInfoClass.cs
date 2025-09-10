@@ -31,9 +31,16 @@ namespace EventDriven2Wk.Code
 
         public delegate long DelegateNumber(long number);
         public delegate string DelegateText(string txt);
-        public delegate string DelegateName(string txt,string txt2, string txt3);
 
         //methods
+        public static String GetBirthDate(string BirthDate)
+        {
+            return BirthDate;
+        }
+        public static String GetFullName(string _FullName)
+        {
+            return _FullName;
+        }
         public static String GetProgram(string Program)
         {
             return Program;
@@ -47,13 +54,13 @@ namespace EventDriven2Wk.Code
             return Age;
         }
 
-        public static long GetStudentNo(long StudentNo)
+        public static long GetStudentNo(long _StudentNo)
         {
-            return StudentNo;
+            return _StudentNo;
         }
-        public static long GetContactNo(long ContactNo)
+        public static long GetContactNo(long _ContactNo)
         {
-            return ContactNo;
+            return _ContactNo;
         }
 
         ///INSTANCE VARIABLES
