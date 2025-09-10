@@ -34,9 +34,9 @@ namespace EventDriven2Wk
             lbl_FName.Text = DelFirstName(StudentInfoClass.FirstName);
             lbl_MName.Text = DelMiddleName(StudentInfoClass.MiddleName);
             lbl_Address.Text = DelAddress(StudentInfoClass.Address);
-            lbl_Age.Text = Convert.ToString(DelNumAge(StudentInfoClass.Age));
-            lbl_ContNo.Text = Convert.ToString(DelNumContactNo(StudentInfoClass.ContactNo));
-            lbl_StudentNo.Text = Convert.ToString(DelStudNo(StudentInfoClass.StudentNo));
+            lbl_Age.Text = Convert.ToString(DelNumAge(StudentInfoClass._Age));
+            lbl_ContNo.Text = Convert.ToString(DelNumContactNo(StudentInfoClass._ContactNo));
+            lbl_StudentNo.Text = Convert.ToString(DelStudNo(StudentInfoClass._StudentNo));
         }
 
         public FrmConfirm()

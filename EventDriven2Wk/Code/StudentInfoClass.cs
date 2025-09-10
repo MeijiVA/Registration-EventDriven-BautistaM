@@ -10,6 +10,11 @@ namespace EventDriven2Wk.Code
     public class StudentInfoClass
     {
         // static var
+        //given instance variables
+        public static long _StudentNo;
+        public static long _ContactNo;
+        public static string _FullName;
+        public static int _Age;
         public static String FirstName = " ";
         public static String LastName = " ";
         public static String MiddleName = " ";
@@ -21,9 +26,9 @@ namespace EventDriven2Wk.Code
         public static long SetStudentNo;
         public static String SetProgram;
         public static String SetGender;
-        public static String SetContactNo;
-        public static String SetAge;
-        public static String SetBirthDay;
+        public static long SetContactNo;
+        public static int SetAge;
+        public static String SetBirthday;
 
         //delegates
 
@@ -63,7 +68,44 @@ namespace EventDriven2Wk.Code
 
         ///INSTANCE VARIABLES
 
+        //REGEX MUTATORS
+        static public long StudentNumber(string studNum)
+        {
 
+            _StudentNo = long.Parse(studNum);
+
+            return _StudentNo;
+        }
+
+        static public long ContactNo(string Contact)
+        {
+            if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+            {
+                _ContactNo = long.Parse(Contact);
+            }
+
+            return _ContactNo;
+        }
+
+        static public string FullName(string LastName, string FirstName, string MiddleInitial)
+        {
+            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+            {
+                _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
+            }
+
+            return _FullName;
+        }
+
+        static public int Age(string age)
+        {
+            if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+            {
+                _Age = Int32.Parse(age);
+            }
+
+            return _Age;
+        }
 
     }
 }
