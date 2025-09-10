@@ -121,7 +121,7 @@ namespace EventDriven2Wk
                 StudentInfoClass.SetAge = StudentInfoClass.Age(tBox_Age.Text);
 
 
-                if (StudentInfoClass.SetFullName is null)
+                if (StudentInfoClass.SetFullName.Equals(""))
                 {
                     throw new WrongNameFormatException("Wrong Name Format, please do not apply Special Characters");
                 }
@@ -156,27 +156,31 @@ namespace EventDriven2Wk
             }
             catch(FormatException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Format is Unavailable");
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Arguement is Null");
             }
             catch (OverflowException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Value of Variable Exceeds the given Data Type");
             }
             catch (IndexOutOfRangeException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Chosen Index is more then it's number");
             }
             catch (WrongNameFormatException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);//special message inputted in if statement
             }
             catch (ContactNumberFormatException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); //special message inputted in if statement
+            }
+            catch (MaxAgeException ex)
+            {
+                MessageBox.Show(ex.Message);//special message inputted in if statement
             }
             finally
             {

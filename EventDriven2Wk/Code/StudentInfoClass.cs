@@ -16,13 +16,13 @@ namespace EventDriven2Wk.Code
         public static string _FullName;
         public static int _Age;
         //SetVar
-        public static String SetFullName;
-        public static long SetStudentNo;
-        public static String SetProgram;
-        public static String SetGender;
-        public static long SetContactNo;
-        public static int SetAge;
-        public static String SetBirthday;
+        public static String SetFullName = "";
+        public static long SetStudentNo = 0;
+        public static String SetProgram = "";
+        public static String SetGender = "";
+        public static long SetContactNo = 0;
+        public static int SetAge = 0;
+        public static String SetBirthday = "";
 
         //delegates
 
