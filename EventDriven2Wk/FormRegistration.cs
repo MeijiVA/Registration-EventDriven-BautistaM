@@ -110,32 +110,48 @@ namespace EventDriven2Wk
          
             //CHALLENGE STEP 13 
             try
-            {           
+            {
                 //STEP 10
-               
-                StudentInfoClass.SetFullName = StudentInfoClass.FullName(tBox_LName.Text, tBox_FName.Text, tBox_MName.Text);
-                if (StudentInfoClass.SetFullName is null)
-                {
-                    throw new WrongNameFormatException("Wrong Name Format, please do not apply Special Characters");
-                }
-
-                StudentInfoClass.SetContactNo = StudentInfoClass.ContactNo(tBox_ContNo.Text);
-                if (StudentInfoClass.SetContactNo == 0)
-                {
-                    throw new ContactNumberFormatException("Wrong Contact Number Format");
-                }
-
-                StudentInfoClass.SetAge = StudentInfoClass.Age(tBox_Age.Text);
-                if (StudentInfoClass.SetAge == 0)
-                {
-                    throw new MaxAgeException("Your Inputted Age is higher than the span of Human Life.");
-                }
-
-
                 StudentInfoClass.SetStudentNo = StudentInfoClass.StudentNumber(tBox_StudNum.Text);
                 StudentInfoClass.SetProgram = cBox_Program.Text;
                 StudentInfoClass.SetGender = cbox_Gender.Text;
                 StudentInfoClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
+                StudentInfoClass.SetContactNo = StudentInfoClass.ContactNo(tBox_ContNo.Text);
+                StudentInfoClass.SetFullName = StudentInfoClass.FullName(tBox_LName.Text, tBox_FName.Text, tBox_MName.Text);
+                StudentInfoClass.SetAge = StudentInfoClass.Age(tBox_Age.Text);
+
+
+                if (StudentInfoClass.SetFullName is null)
+                {
+                    throw new WrongNameFormatException("Wrong Name Format, please do not apply Special Characters");
+                }
+                else if (StudentInfoClass.SetContactNo == 0)
+                {
+                    throw new ContactNumberFormatException("Wrong Contact Number Format");
+                }
+                else if (StudentInfoClass.SetAge == 0)
+                {
+                    throw new MaxAgeException("Your Inputted Age is higher than the span of Human Life.");
+                }
+                else
+                {
+                    ///Show form
+                    FrmConfirm frm = new FrmConfirm();
+                    this.Hide();
+                    if (frm.ShowDialog().Equals(DialogResult.OK))
+                    {
+                         tBox_FName.Text = "";
+                         tBox_LName.Text = "";
+                         tBox_MName.Text = "";
+                         cBox_Program.Text = "";
+                         tBox_Age.Text = "";
+                         tBox_ContNo.Text = "";
+                         tBox_StudNum.Text = "";
+                         cbox_Gender.Text = "";
+                        this.Show();
+                    }
+
+                }
 
             }
             catch(FormatException ex)
@@ -162,23 +178,17 @@ namespace EventDriven2Wk
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                StudentInfoClass.SetAge = 0;
+                StudentInfoClass.SetStudentNo = 0;
+                StudentInfoClass.SetContactNo = 0;
+                StudentInfoClass.SetFullName = null;
+                StudentInfoClass.SetProgram = null;
+                StudentInfoClass.SetGender = null;
+                StudentInfoClass.SetBirthday = null;
+            }
 
-
-            ///Show form
-            FrmConfirm frm = new FrmConfirm();
-                this.Hide();
-                if (frm.ShowDialog().Equals(DialogResult.OK))
-                {
-                   /* tBox_FName.Text = "";
-                    tBox_LName.Text = "";
-                    tBox_MName.Text = "";
-                    cBox_Program.Text = "";
-                    tBox_Age.Text = "";
-                    tBox_ContNo.Text = "";
-                    tBox_StudNum.Text = "";
-                    cbox_Gender.Text = "";*/
-                    this.Show();
-                }
 
 
         }
