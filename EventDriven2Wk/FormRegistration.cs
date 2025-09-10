@@ -46,7 +46,7 @@ namespace EventDriven2Wk
         public int _Age;
         ///INSTANCE VARIABLES
 
-        //REGEX GIVEN
+        //REGEX MUTATORS
         public long StudentNumber(string studNum)
         {
 
@@ -128,6 +128,7 @@ namespace EventDriven2Wk
                 StudentInfoClass.FirstName = tBox_FName.Text.ToString();
                 StudentInfoClass.LastName = tBox_LName.Text.ToString();
                 StudentInfoClass.MiddleName = tBox_MName.Text.ToString();
+                
                 StudentInfoClass.Address = tBox_Address.Text.ToString();
                 StudentInfoClass.Program = cBox_Program.Text.ToString();
                 StudentInfoClass.Age = (long)Convert.ToDouble(tBox_Age.Text);
@@ -141,22 +142,22 @@ namespace EventDriven2Wk
             finally
             {
 
+                FrmConfirm frm = new FrmConfirm();
+                this.Hide();
+                if (frm.ShowDialog().Equals(DialogResult.OK))
+                {
+                    tBox_FName.Text = "";
+                    tBox_LName.Text = "";
+                    tBox_MName.Text = "";
+                    tBox_Address.Text = "";
+                    cBox_Program.Text = "";
+                    tBox_Age.Text = "";
+                    tBox_ContNo.Text = "";
+                    tBox_StudNum.Text = "";
+                    this.Show();
+                }
             }
 
-            FrmConfirm frm = new FrmConfirm();
-            this.Hide();
-            if(frm.ShowDialog().Equals(DialogResult.OK))
-            {
-                tBox_FName.Text = "";
-                tBox_LName.Text = "";
-                tBox_MName.Text = "";
-                tBox_Address.Text = "";
-                cBox_Program.Text = "";
-                tBox_Age.Text = "";
-                tBox_ContNo.Text = "";
-                tBox_StudNum.Text = "";
-                this.Show();
-            }
         }
 
 
@@ -176,6 +177,7 @@ namespace EventDriven2Wk
         {
 
         }
+
 
     }
 }

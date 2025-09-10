@@ -83,7 +83,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(150, 104);
+            this.label4.Location = new System.Drawing.Point(198, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 3;
@@ -93,11 +93,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(281, 104);
+            this.label5.Location = new System.Drawing.Point(377, 104);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Middle Name:";
+            this.label5.Text = "M. I.:";
             // 
             // label6
             // 
@@ -143,7 +143,7 @@
             // 
             this.tBox_LName.Location = new System.Drawing.Point(12, 120);
             this.tBox_LName.Name = "tBox_LName";
-            this.tBox_LName.Size = new System.Drawing.Size(130, 20);
+            this.tBox_LName.Size = new System.Drawing.Size(180, 20);
             this.tBox_LName.TabIndex = 11;
             // 
             // tBox_Age
@@ -162,16 +162,16 @@
             // 
             // tBox_FName
             // 
-            this.tBox_FName.Location = new System.Drawing.Point(148, 120);
+            this.tBox_FName.Location = new System.Drawing.Point(198, 120);
             this.tBox_FName.Name = "tBox_FName";
-            this.tBox_FName.Size = new System.Drawing.Size(130, 20);
+            this.tBox_FName.Size = new System.Drawing.Size(176, 20);
             this.tBox_FName.TabIndex = 14;
             // 
             // tBox_MName
             // 
-            this.tBox_MName.Location = new System.Drawing.Point(284, 120);
+            this.tBox_MName.Location = new System.Drawing.Point(380, 120);
             this.tBox_MName.Name = "tBox_MName";
-            this.tBox_MName.Size = new System.Drawing.Size(130, 20);
+            this.tBox_MName.Size = new System.Drawing.Size(38, 20);
             this.tBox_MName.TabIndex = 15;
             // 
             // tBox_StudNum
