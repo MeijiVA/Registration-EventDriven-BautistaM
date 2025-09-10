@@ -44,7 +44,9 @@ namespace EventDriven2Wk
         public long _ContactNo;
         public string _FullName;
         public int _Age;
+        ///INSTANCE VARIABLES
 
+        //REGEX GIVEN
         public long StudentNumber(string studNum)
         {
 
@@ -107,14 +109,29 @@ namespace EventDriven2Wk
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
-            StudentInfoClass.FirstName = tBox_FName.Text.ToString();
-            StudentInfoClass.LastName = tBox_LName.Text.ToString();
-            StudentInfoClass.MiddleName = tBox_MName.Text.ToString();
-            StudentInfoClass.Address = tBox_Address.Text.ToString();
-            StudentInfoClass.Program = cBox_Program.Text.ToString();
-            StudentInfoClass.Age = (long)Convert.ToDouble(tBox_Age.Text);
-            StudentInfoClass.ContactNo = (long)Convert.ToDouble(tBox_ContNo.Text);
-            StudentInfoClass.StudentNo = (long)Convert.ToDouble(tBox_StudNum.Text);
+            //StudentNumber,  FullName, Age Methods are missing, insert this
+
+            //CHALLENGE STEP 13 
+            try
+            {
+                StudentInfoClass.FirstName = tBox_FName.Text.ToString();
+                StudentInfoClass.LastName = tBox_LName.Text.ToString();
+                StudentInfoClass.MiddleName = tBox_MName.Text.ToString();
+                StudentInfoClass.Address = tBox_Address.Text.ToString();
+                StudentInfoClass.Program = cBox_Program.Text.ToString();
+                StudentInfoClass.Age = (long)Convert.ToDouble(tBox_Age.Text);
+                StudentInfoClass.ContactNo = (long)Convert.ToDouble(tBox_ContNo.Text);
+                StudentInfoClass.StudentNo = (long)Convert.ToDouble(tBox_StudNum.Text);
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
             FrmConfirm frm = new FrmConfirm();
             this.Hide();
             if(frm.ShowDialog().Equals(DialogResult.OK))
@@ -131,12 +148,23 @@ namespace EventDriven2Wk
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void tBox_Address_TextChanged(object sender, EventArgs e)
         {
 
         }
-
-
 
     }
 }
