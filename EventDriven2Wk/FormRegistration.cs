@@ -16,6 +16,50 @@ namespace EventDriven2Wk
 {
     public partial class FormRegistration : Form
     {
+        //given instance variables
+        public long _StudentNo;
+        public long _ContactNo;
+        public string _FullName;
+        public int _Age;
+        //REGEX MUTATORS
+        public long StudentNumber(string studNum)
+        {
+
+            _StudentNo = long.Parse(studNum);
+
+            return _StudentNo;
+        }
+
+        public long ContactNo(string Contact)
+        {
+            if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+            {
+                _ContactNo = long.Parse(Contact);
+            }
+
+            return _ContactNo;
+        }
+
+        public string FullName(string LastName, string FirstName, string MiddleInitial)
+        {
+            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+            {
+                _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
+            }
+
+            return _FullName;
+        }
+
+        public int Age(string age)
+        {
+            if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+            {
+                _Age = Int32.Parse(age);
+            }
+
+            return _Age;
+        }
+
 
         public Point mouseLoc;
         public Point bottleMouse;
@@ -78,6 +122,9 @@ namespace EventDriven2Wk
             //StudentNumber,  FullName, Age Methods are missing, insert this
             //STEP 10
             StudentInfoClass.SetFullName = FullName(tBox_LName.Text, tBox_FName.Text, tBox_MName.Text);
+            StudentInfoClass.SetStudentNo = StudentNumber(tBox_StudNum.Text);
+            StudentInfoClass.SetProgram = cBox_Program.Text;
+            StudentInfoClass.SetGender = cbox_Gender.Text;
             //CHALLENGE STEP 13 
             try
             {
@@ -105,7 +152,6 @@ namespace EventDriven2Wk
                     tBox_FName.Text = "";
                     tBox_LName.Text = "";
                     tBox_MName.Text = "";
-                    tBox_Address.Text = "";
                     cBox_Program.Text = "";
                     tBox_Age.Text = "";
                     tBox_ContNo.Text = "";
