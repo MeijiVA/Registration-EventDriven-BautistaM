@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\StudentInfoClass.cs" />
+    <Compile Include="Code\CustomException.cs" />
     <Compile Include="FormRegistration.cs">
       <SubType>Form</SubType>
     </Compile>

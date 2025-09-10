@@ -15,9 +15,6 @@ namespace EventDriven2Wk.Code
         public static long _ContactNo;
         public static string _FullName;
         public static int _Age;
-        public static String FirstName = " ";
-        public static String LastName = " ";
-        public static String MiddleName = " ";
         //SetVar
         public static String SetFullName;
         public static long SetStudentNo;

@@ -16,8 +16,29 @@ namespace EventDriven2Wk
 {
     public partial class FormRegistration : Form
     {
+        //CUSTOM EXCEPTIONS
+        public class WrongNameFormatException : Exception
+        {
+            public WrongNameFormatException(string message) : base(message)
+            {
 
+            }
+        }
 
+        public class ContactNumberFormatException : Exception
+        {
+            public ContactNumberFormatException(string message) : base(message)
+            {
+
+            }
+        }
+        public class MaxAgeException : Exception
+        {
+            public MaxAgeException(string message) : base(message)
+            {
+
+            }
+        }
 
         public Point mouseLoc;
         public Point bottleMouse;
@@ -86,48 +107,79 @@ namespace EventDriven2Wk
         private void btn_Next_Click(object sender, EventArgs e)
         {
             //StudentNumber,  FullName, Age Methods are missing, insert this
-            //STEP 10
-            StudentInfoClass.SetFullName = StudentInfoClass.FullName(tBox_LName.Text, tBox_FName.Text, tBox_MName.Text);
-            StudentInfoClass.SetStudentNo = StudentInfoClass.StudentNumber(tBox_StudNum.Text);
-            StudentInfoClass.SetProgram = cBox_Program.Text;
-            StudentInfoClass.SetGender = cbox_Gender.Text;
-            StudentInfoClass.SetContactNo = StudentInfoClass.ContactNo(tBox_ContNo.Text);
-            StudentInfoClass.SetAge = StudentInfoClass.Age(tBox_Age.Text);
-            StudentInfoClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");           
+         
             //CHALLENGE STEP 13 
             try
-            {
-               /* StudentInfoClass.FirstName = tBox_FName.Text.ToString();
-                StudentInfoClass.LastName = tBox_LName.Text.ToString();
-                StudentInfoClass.MiddleName = tBox_MName.Text.ToString();
-                
-                StudentInfoClass.Address = tBox_Address.Text.ToString();
-                StudentInfoClass.Program = cBox_Program.Text.ToString();
-                StudentInfoClass.Age = (long)Convert.ToDouble(tBox_Age.Text);
-                StudentInfoClass.ContactNo = (long)Convert.ToDouble(tBox_ContNo.Text);
-                StudentInfoClass.StudentNo = (long)Convert.ToDouble(tBox_StudNum.Text);*/
-            }
-            catch(Exception ex)
-            {
+            {           
+                //STEP 10
+               
+                StudentInfoClass.SetFullName = StudentInfoClass.FullName(tBox_LName.Text, tBox_FName.Text, tBox_MName.Text);
+                if (StudentInfoClass.SetFullName is null)
+                {
+                    throw new WrongNameFormatException("Wrong Name Format, please do not apply Special Characters");
+                }
+
+                StudentInfoClass.SetContactNo = StudentInfoClass.ContactNo(tBox_ContNo.Text);
+                if (StudentInfoClass.SetContactNo == 0)
+                {
+                    throw new ContactNumberFormatException("Wrong Contact Number Format");
+                }
+
+                StudentInfoClass.SetAge = StudentInfoClass.Age(tBox_Age.Text);
+                if (StudentInfoClass.SetAge == 0)
+                {
+                    throw new MaxAgeException("Your Inputted Age is higher than the span of Human Life.");
+                }
+
+
+                StudentInfoClass.SetStudentNo = StudentInfoClass.StudentNumber(tBox_StudNum.Text);
+                StudentInfoClass.SetProgram = cBox_Program.Text;
+                StudentInfoClass.SetGender = cbox_Gender.Text;
+                StudentInfoClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
 
             }
-            finally
+            catch(FormatException ex)
             {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (OverflowException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (WrongNameFormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ContactNumberFormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-                FrmConfirm frm = new FrmConfirm();
+
+            ///Show form
+            FrmConfirm frm = new FrmConfirm();
                 this.Hide();
                 if (frm.ShowDialog().Equals(DialogResult.OK))
                 {
-                    tBox_FName.Text = "";
+                   /* tBox_FName.Text = "";
                     tBox_LName.Text = "";
                     tBox_MName.Text = "";
                     cBox_Program.Text = "";
                     tBox_Age.Text = "";
                     tBox_ContNo.Text = "";
                     tBox_StudNum.Text = "";
+                    cbox_Gender.Text = "";*/
                     this.Show();
                 }
-            }
+
 
         }
 
