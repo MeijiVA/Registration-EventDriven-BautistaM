@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using EventDriven2Wk.Code;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-
 namespace EventDriven2Wk
 {
     public partial class FormRegistration : Form
