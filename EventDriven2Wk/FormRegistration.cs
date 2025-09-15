@@ -44,6 +44,7 @@ namespace EventDriven2Wk
         {
             //SQL CONNECTIONS
             SqlConnection con = new SqlConnection("Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True");
+            //note: u can get this from left clicking database and getting the connection string
            
             con.Open(); // opens a connection
 
@@ -66,10 +67,15 @@ namespace EventDriven2Wk
                         for(int i = 0;i < 6; i++)
                         {
                             tableValues = tableValues + "," + reader[i].ToString();
-                        }
-                    }
-                }
-            }
+                        }//will keep adding all values in a row
+
+                        tableValues = tableValues + "\n";
+
+                    }//it will loop until it keeps finding a row
+
+                }//this will execute a reader that reads over the given statement in the query
+
+            }//this will use the sql command
            
 
             return tableValues; 
