@@ -42,13 +42,14 @@
             this.tBox_MName = new System.Windows.Forms.TextBox();
             this.tBox_StudNum = new System.Windows.Forms.TextBox();
             this.cBox_Program = new System.Windows.Forms.ComboBox();
-            this.btn_Next = new System.Windows.Forms.Button();
+            this.S = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btn_Close = new System.Windows.Forms.Button();
             this.cbox_Gender = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.datePickerBirthday = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
+            this.testTxt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -172,17 +173,17 @@
             this.cBox_Program.Size = new System.Drawing.Size(359, 21);
             this.cBox_Program.TabIndex = 17;
             // 
-            // btn_Next
+            // S
             // 
-            this.btn_Next.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Next.Location = new System.Drawing.Point(222, 189);
-            this.btn_Next.Name = "btn_Next";
-            this.btn_Next.Size = new System.Drawing.Size(112, 34);
-            this.btn_Next.TabIndex = 18;
-            this.btn_Next.Text = "Next";
-            this.btn_Next.UseVisualStyleBackColor = true;
-            this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
+            this.S.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.S.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S.Location = new System.Drawing.Point(222, 189);
+            this.S.Name = "S";
+            this.S.Size = new System.Drawing.Size(112, 34);
+            this.S.TabIndex = 18;
+            this.S.Text = "Next";
+            this.S.UseVisualStyleBackColor = true;
+            this.S.Click += new System.EventHandler(this.btn_Next_Click);
             // 
             // label9
             // 
@@ -249,19 +250,29 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Birthday:";
             // 
+            // testTxt
+            // 
+            this.testTxt.AutoSize = true;
+            this.testTxt.Location = new System.Drawing.Point(47, 267);
+            this.testTxt.Name = "testTxt";
+            this.testTxt.Size = new System.Drawing.Size(108, 13);
+            this.testTxt.TabIndex = 26;
+            this.testTxt.Text = "select statement here";
+            // 
             // FormRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(569, 235);
+            this.ClientSize = new System.Drawing.Size(569, 411);
+            this.Controls.Add(this.testTxt);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.datePickerBirthday);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbox_Gender);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.btn_Next);
+            this.Controls.Add(this.S);
             this.Controls.Add(this.cBox_Program);
             this.Controls.Add(this.tBox_StudNum);
             this.Controls.Add(this.tBox_MName);
@@ -304,13 +315,14 @@
         private System.Windows.Forms.TextBox tBox_MName;
         private System.Windows.Forms.TextBox tBox_StudNum;
         private System.Windows.Forms.ComboBox cBox_Program;
-        private System.Windows.Forms.Button btn_Next;
+        private System.Windows.Forms.Button S;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.ComboBox cbox_Gender;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker datePickerBirthday;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label testTxt;
     }
 }
 

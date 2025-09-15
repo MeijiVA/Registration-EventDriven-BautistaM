@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventDriven2Wk.Code;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.SqlClient;
 
 namespace EventDriven2Wk
 {
@@ -37,6 +38,20 @@ namespace EventDriven2Wk
             {
 
             }
+        }
+
+        public static string useQuery(string query)
+        {
+            //SQL CONNECTIONS
+            SqlConnection con = new SqlConnection("Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True");
+           
+            con.Open(); // opens a connection
+            SqlCommand cmd = new SqlCommand(query, con);// sends the query command and checks the connection(the two arguements)
+            
+            //cmd.Parameters.AddWithValue("variable in query name",text you want to put in the variable);
+            //(will be used later but not really needed since i'll be placing the values in a string lol)
+
+            return cmd.ExecuteScalar()?.ToString(); //returns the value of the command :D
         }
 
         public Point mouseLoc;
@@ -118,7 +133,7 @@ namespace EventDriven2Wk
                 StudentInfoClass.SetContactNo = StudentInfoClass.ContactNo(tBox_ContNo.Text);
                 StudentInfoClass.SetFullName = StudentInfoClass.FullName(tBox_LName.Text, tBox_FName.Text, tBox_MName.Text);
                 StudentInfoClass.SetAge = StudentInfoClass.Age(tBox_Age.Text);
-
+                testTxt.Text = useQuery("SELECT * FROM Students");
 
                 if (StudentInfoClass.SetFullName.Equals(""))
                 {
@@ -135,6 +150,7 @@ namespace EventDriven2Wk
                 else
                 {
                     ///Show form
+                    
                     FrmConfirm frm = new FrmConfirm();
                     this.Hide();
                     if (frm.ShowDialog().Equals(DialogResult.OK))
