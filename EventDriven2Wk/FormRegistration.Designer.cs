@@ -252,10 +252,9 @@
             // 
             // testTxt
             // 
-            this.testTxt.AutoSize = true;
-            this.testTxt.Location = new System.Drawing.Point(47, 267);
+            this.testTxt.Location = new System.Drawing.Point(26, 261);
             this.testTxt.Name = "testTxt";
-            this.testTxt.Size = new System.Drawing.Size(108, 13);
+            this.testTxt.Size = new System.Drawing.Size(506, 124);
             this.testTxt.TabIndex = 26;
             this.testTxt.Text = "select statement here";
             // 

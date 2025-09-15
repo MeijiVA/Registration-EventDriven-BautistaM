@@ -46,12 +46,33 @@ namespace EventDriven2Wk
             SqlConnection con = new SqlConnection("Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True");
            
             con.Open(); // opens a connection
-            SqlCommand cmd = new SqlCommand(query, con);// sends the query command and checks the connection(the two arguements)
-            
+
+            //NOTES:::::
+            //SqlCommand cmd = new SqlCommand(query, con); sends the query command and checks the connection(the two arguements)
+
             //cmd.Parameters.AddWithValue("variable in query name",text you want to put in the variable);
             //(will be used later but not really needed since i'll be placing the values in a string lol)
 
-            return cmd.ExecuteScalar()?.ToString(); //returns the value of the command :D
+            //cmd.ExecuteScalar()?.ToString(); //returns FIRST VALUEthe value of the command :D
+
+            string tableValues = "1";
+
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                using(var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        for(int i = 0;i < 6; i++)
+                        {
+                            tableValues = tableValues + "," + reader[i].ToString();
+                        }
+                    }
+                }
+            }
+           
+
+            return tableValues; 
         }
 
         public Point mouseLoc;
