@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using EventDriven2Wk.Code;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EventDriven2Wk
 {
@@ -43,37 +44,41 @@ namespace EventDriven2Wk
         public static string useQuery(string query)
         {
             //SQL CONNECTIONS
-            SqlConnection con = new SqlConnection("Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True");
+            string DB = "Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True";
+            SqlConnection con = new SqlConnection(DB);
+
             //note: u can get this from left clicking database and getting the connection string
            
             con.Open(); // opens a connection
 
-            //NOTES:::::
+            //NOTES::::: FOR LEARNING PURPOSES ONLY
             //SqlCommand cmd = new SqlCommand(query, con); sends the query command and checks the connection(the two arguements)
 
             //cmd.Parameters.AddWithValue("variable in query name",text you want to put in the variable);
-            //(will be used later but not really needed since i'll be placing the values in a string lol)
+            //(will be used)
 
-            //cmd.ExecuteScalar()?.ToString(); //returns FIRST VALUEthe value of the command :D
+            //cmd.ExecuteScalar()?.ToString(); //returns FIRST VALUE of the command :D
 
             string tableValues = "1";
 
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                using(var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        for(int i = 0;i < 6; i++)
-                        {
-                            tableValues = tableValues + "," + reader[i].ToString();
-                        }//will keep adding all values in a row
+                /* using(var reader = cmd.ExecuteReader())
+                 {
+                     while (reader.Read())
+                     {
+                         for(int i = 0;i < 6; i++)
+                         {
+                             tableValues = tableValues + "," + reader[i].ToString();
+                         }//will keep adding all values in a row
 
-                        tableValues = tableValues + "\n";
+                         tableValues = tableValues + "\n";
 
-                    }//it will loop until it keeps finding a row
+                     }//it will loop until it keeps finding a row
 
-                }//this will execute a reader that reads over the given statement in the query
+                 }//this will execute a reader that reads over the given statement in the query*/
+                cmd.Parameters.AddWithValue("variable in query name", text you want to put in the variable);
+
 
             }//this will use the sql command
            
@@ -160,7 +165,6 @@ namespace EventDriven2Wk
                 StudentInfoClass.SetContactNo = StudentInfoClass.ContactNo(tBox_ContNo.Text);
                 StudentInfoClass.SetFullName = StudentInfoClass.FullName(tBox_LName.Text, tBox_FName.Text, tBox_MName.Text);
                 StudentInfoClass.SetAge = StudentInfoClass.Age(tBox_Age.Text);
-                testTxt.Text = useQuery("SELECT * FROM Students");
 
                 if (StudentInfoClass.SetFullName.Equals(""))
                 {
@@ -177,7 +181,11 @@ namespace EventDriven2Wk
                 else
                 {
                     ///Show form
-                    
+
+                    testTxt.Text = useQuery("INSERT INTO Students(studentNumber, program, fullName, age, contactNumber, birthday, gender) " +
+                                                         "VALUES (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)");
+
+
                     FrmConfirm frm = new FrmConfirm();
                     this.Hide();
                     if (frm.ShowDialog().Equals(DialogResult.OK))
