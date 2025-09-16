@@ -47,27 +47,14 @@ namespace EventDriven2Wk
             //SQL CONNECTIONS
             string DB = "Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True";
             SqlConnection con = new SqlConnection(DB);
-
-            //note: u can get this from left clicking database and getting the connection string
-           
             con.Open(); // opens a connection
-
-            //NOTES::::: FOR LEARNING PURPOSES ONLY
-            //SqlCommand cmd = new SqlCommand(query, con); sends the query command and checks the connection(the two arguements)
-
-            //cmd.Parameters.AddWithValue("variable in query name",text you want to put in the variable);
-            //(will be used)
-
-            //cmd.ExecuteScalar()?.ToString(); //returns FIRST VALUE of the command :D
 
             string tableValues = " ";
 
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
 
-
                 //VALUES NEEDED FOR QUERY (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)
-
                 cmd.Parameters.AddWithValue("@StudNum",StudentInfoClass.SetStudentNo);
                 cmd.Parameters.AddWithValue("@Program", StudentInfoClass.SetProgram);
                 cmd.Parameters.AddWithValue("@FullName", StudentInfoClass.SetFullName);
