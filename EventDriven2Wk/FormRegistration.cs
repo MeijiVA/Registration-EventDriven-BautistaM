@@ -42,19 +42,20 @@ namespace EventDriven2Wk
             }
         }
 
-        public static string useQuery(string query)
+        public static string useQuery()
         {
+            string query = @"INSERT INTO Students(studentNumber, program, fullName, age, contactNumber, birthday, gender) 
+                                            VALUES (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)";
             //SQL CONNECTIONS
             string DB = "Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True";
             SqlConnection con = new SqlConnection(DB);
-            con.Open(); // opens a connection
-            string tableValues = " ";
+            string tableValues = "";
 
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
-
+                con.Open(); // opens a connection
                 //VALUES NEEDED FOR QUERY (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)
-                cmd.Parameters.AddWithValue("@StudNum",StudentInfoClass.SetStudentNo);
+                cmd.Parameters.AddWithValue("@StudNum", StudentInfoClass.SetStudentNo);
                 cmd.Parameters.AddWithValue("@Program", StudentInfoClass.SetProgram);
                 cmd.Parameters.AddWithValue("@FullName", StudentInfoClass.SetFullName);
                 cmd.Parameters.AddWithValue("@Age", StudentInfoClass.SetAge);
@@ -62,10 +63,14 @@ namespace EventDriven2Wk
                 cmd.Parameters.AddWithValue("@Birthday", StudentInfoClass.SetBirthday);
                 cmd.Parameters.AddWithValue("@Gender", StudentInfoClass.SetGender);
 
+                cmd.ExecuteNonQuery();
+                //Executes the query
+                con.Close();
             }//this will use the sql command
 
             using (SqlCommand cmd = new SqlCommand("SELECT * FROM Students", con))
             {
+                con.Open(); // opens a connection
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -80,7 +85,7 @@ namespace EventDriven2Wk
                     }//it will loop until it keeps finding a row
 
                 }//this will execute a reader that reads over the given statement in the query
-
+                con.Close();
                 //just for getting values
             }
 
@@ -182,7 +187,7 @@ namespace EventDriven2Wk
                 else
                 {
                     ///Show form
-                    testTxt.Text = useQuery(@"INSERT INTO Students(studentNumber, program, fullName, age, contactNumber, birthday, gender) VALUES (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)");
+                    testTxt.Text = useQuery();
 
 
 
