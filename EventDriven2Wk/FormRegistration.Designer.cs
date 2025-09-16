@@ -256,7 +256,7 @@
             this.testTxt.Name = "testTxt";
             this.testTxt.Size = new System.Drawing.Size(506, 124);
             this.testTxt.TabIndex = 26;
-            this.testTxt.Text = "select statement here";
+            this.testTxt.Text = "This Label will Show all The current Rows and Columns of the Table For Checking";
             // 
             // FormRegistration
             // 

@@ -12,6 +12,7 @@ using EventDriven2Wk.Code;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using static System.Net.Mime.MediaTypeNames;
+using Azure;
 
 namespace EventDriven2Wk
 {
@@ -59,29 +60,43 @@ namespace EventDriven2Wk
 
             //cmd.ExecuteScalar()?.ToString(); //returns FIRST VALUE of the command :D
 
-            string tableValues = "1";
+            string tableValues = " ";
 
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                /* using(var reader = cmd.ExecuteReader())
-                 {
-                     while (reader.Read())
-                     {
-                         for(int i = 0;i < 6; i++)
-                         {
-                             tableValues = tableValues + "," + reader[i].ToString();
-                         }//will keep adding all values in a row
-
-                         tableValues = tableValues + "\n";
-
-                     }//it will loop until it keeps finding a row
-
-                 }//this will execute a reader that reads over the given statement in the query*/
-                cmd.Parameters.AddWithValue("variable in query name", text you want to put in the variable);
 
 
+                //VALUES NEEDED FOR QUERY (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)
+
+                cmd.Parameters.AddWithValue("@StudNum",StudentInfoClass.SetStudentNo);
+                cmd.Parameters.AddWithValue("@Program", StudentInfoClass.SetProgram);
+                cmd.Parameters.AddWithValue("@FullName", StudentInfoClass.SetFullName);
+                cmd.Parameters.AddWithValue("@Age", StudentInfoClass.SetAge);
+                cmd.Parameters.AddWithValue("@ContactNum", StudentInfoClass.SetContactNo);
+                cmd.Parameters.AddWithValue("@Birthday", StudentInfoClass.SetBirthday);
+                cmd.Parameters.AddWithValue("@Gender", StudentInfoClass.SetGender);
             }//this will use the sql command
-           
+
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM Students", con))
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < 6; i++)
+                        {
+                            tableValues = tableValues + "," + reader[i].ToString();
+                        }//will keep adding all values in a row
+
+                        tableValues = tableValues + "\n";
+
+                    }//it will loop until it keeps finding a row
+
+                }//this will execute a reader that reads over the given statement in the query
+
+                //just for getting values
+            }
+            con.Close();
 
             return tableValues; 
         }
@@ -182,9 +197,7 @@ namespace EventDriven2Wk
                 {
                     ///Show form
 
-                    testTxt.Text = useQuery("INSERT INTO Students(studentNumber, program, fullName, age, contactNumber, birthday, gender) " +
-                                                         "VALUES (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)");
-
+                    
 
                     FrmConfirm frm = new FrmConfirm();
                     this.Hide();
@@ -198,6 +211,11 @@ namespace EventDriven2Wk
                          tBox_ContNo.Text = "";
                          tBox_StudNum.Text = "";
                          cbox_Gender.Text = "";
+
+                        //When value is confirmed :D
+                        testTxt.Text = useQuery(@"INSERT INTO Students(studentNumber, program, fullName, age, contactNumber, birthday, gender) " +
+                                                         "VALUES (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)");
+
                         this.Show();
                     }
 
