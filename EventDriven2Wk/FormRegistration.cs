@@ -48,7 +48,6 @@ namespace EventDriven2Wk
             string DB = "Data Source=MIAN\\SQLEXPRESS;Initial Catalog=RegistrationDB;Integrated Security=True;TrustServerCertificate=True";
             SqlConnection con = new SqlConnection(DB);
             con.Open(); // opens a connection
-
             string tableValues = " ";
 
             using (SqlCommand cmd = new SqlCommand(query, con))
@@ -62,6 +61,7 @@ namespace EventDriven2Wk
                 cmd.Parameters.AddWithValue("@ContactNum", StudentInfoClass.SetContactNo);
                 cmd.Parameters.AddWithValue("@Birthday", StudentInfoClass.SetBirthday);
                 cmd.Parameters.AddWithValue("@Gender", StudentInfoClass.SetGender);
+
             }//this will use the sql command
 
             using (SqlCommand cmd = new SqlCommand("SELECT * FROM Students", con))
@@ -83,7 +83,6 @@ namespace EventDriven2Wk
 
                 //just for getting values
             }
-            con.Close();
 
             return tableValues; 
         }
@@ -183,14 +182,17 @@ namespace EventDriven2Wk
                 else
                 {
                     ///Show form
+                    testTxt.Text = useQuery(@"INSERT INTO Students(studentNumber, program, fullName, age, contactNumber, birthday, gender) VALUES (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)");
 
-                    
+
 
                     FrmConfirm frm = new FrmConfirm();
                     this.Hide();
                     if (frm.ShowDialog().Equals(DialogResult.OK))
                     {
-                         tBox_FName.Text = "";
+
+                        //When value is confirmed :D
+                        tBox_FName.Text = "";
                          tBox_LName.Text = "";
                          tBox_MName.Text = "";
                          cBox_Program.Text = "";
@@ -198,11 +200,6 @@ namespace EventDriven2Wk
                          tBox_ContNo.Text = "";
                          tBox_StudNum.Text = "";
                          cbox_Gender.Text = "";
-
-                        //When value is confirmed :D
-                        testTxt.Text = useQuery(@"INSERT INTO Students(studentNumber, program, fullName, age, contactNumber, birthday, gender) " +
-                                                         "VALUES (@StudNum, @Program, @FullName, @Age, @ContactNum, @Birthday, @Gender)");
-
                         this.Show();
                     }
 
@@ -270,6 +267,9 @@ namespace EventDriven2Wk
 
         }
 
+        private void testTxt_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

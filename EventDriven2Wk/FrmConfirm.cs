@@ -23,6 +23,7 @@ namespace EventDriven2Wk
 
         private void btn_Confirm_Click_1(object sender, EventArgs e)
         {
+         
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

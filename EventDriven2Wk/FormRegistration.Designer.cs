@@ -257,6 +257,7 @@
             this.testTxt.Size = new System.Drawing.Size(506, 124);
             this.testTxt.TabIndex = 26;
             this.testTxt.Text = "This Label will Show all The current Rows and Columns of the Table For Checking";
+            this.testTxt.Click += new System.EventHandler(this.testTxt_Click);
             // 
             // FormRegistration
             // 
@@ -321,7 +322,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker datePickerBirthday;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label testTxt;
+        public System.Windows.Forms.Label testTxt;
     }
 }
 
